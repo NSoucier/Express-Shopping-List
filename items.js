@@ -34,7 +34,7 @@ router.patch('/:name', (req, res) => {
 
 router.delete('/:name', (req, res) => {
     const index = items.findIndex(item => item.name === req.params.name);
-    if (item === -1) throw new ExpressError('Item cannot be found', 404);
+    if (index === -1) throw new ExpressError('Item cannot be found', 404);
     items.splice(index, 1)
     res.json({ message: "Deleted" })
 })
